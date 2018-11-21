@@ -1,0 +1,29 @@
+<section class="search-container">
+  <form nz-form [nzLayout]="'vertical'">
+    <nz-form-item>
+      <nz-form-label nzFor="productName">商品名称</nz-form-label>
+      <nz-form-control>
+        <input nz-input formControlName="productName" id="productName">
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label nzFor="productPrice">商品价格</nz-form-label>
+      <nz-form-control>
+        <input nz-input formControlName="productPrice" id="productPrice">
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label nzFor="productName">商品分类</nz-form-label>
+      <nz-form-control>
+        <nz-select nzPlaceHolder="Choose">
+          <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control>
+        <button nz-button class="do-search-product" [nzType]="'primary'" type="button">搜索</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</section>
