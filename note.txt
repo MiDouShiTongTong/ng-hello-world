@@ -25,15 +25,18 @@
           // 2.实例化 对应的对象 (useClass: AnotherProductService)
         */
 
-    注入器的层级关系
-        应用级注入器(模块中的 providers)
-        组件级注入器(组件中的 providers)
-        子组件级注入器
+    提供器的层级关系
+        应用级提供器(模块中的 providers)
+        组件级提供器(组件中的 providers)
+        子组件级提供器
 
-    组件获取注入器的顺序
+    组件获取提供器的顺序
         自身的 providers 中获取
         父组件的 providers 中获取
-        应用级的 providers 中获取(Injectable 装饰器会存储到应用级的 providers 中)
+        应用级的 providers 中获取
+            Injectable 装饰器会存储到应用级的 providers 中
+            module 的 providers 会覆盖 Injectable 装饰器
+
         上面三层都没有获取到抛异常
 
 绑定 响应式编程 管道
