@@ -1,0 +1,22 @@
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  .ant-card {
+    width: 220px;
+    margin-top: 20px;
+    margin-right: 20px;
+    .product-title-container {
+      display: flex;
+      justify-content: space-between;
+      span:first-child {
+        font-weight: bold;
+      }
+      span:last-child {
+        color: #f60;
+      }
+    }
+  }
+  .ant-card:nth-child(3n + 3) {
+    margin-right: 0;
+  }
+}

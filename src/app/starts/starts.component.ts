@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-starts',
@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./starts.component.scss']
 })
 export class StartsComponent implements OnInit {
+  @Input()
+  private rating: number;
 
-  constructor() { }
+  private startList: boolean[] = [];
 
-  ngOnInit() {
+  constructor() {
   }
 
+  ngOnInit() {
+    for (let i = 1; i <= 5; i++) {
+      this.startList.push(this.rating >= i);
+    }
+  }
 }

@@ -1,3 +1,16 @@
-<p>
-  product works!
-</p>
+<section class="product-container">
+  <nz-card nzHoverable [nzCover]="coverTemplate"
+           *ngFor="let product of productList"
+           [routerLink]="['product', product.id]"
+  >
+    <ng-template #coverTemplate>
+      <img alt="product.name" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"/>
+    </ng-template>
+    <p class="product-title-container">
+      <span>{{product.name}}</span>
+      <span>¥{{product.price}}</span>
+    </p>
+    <p>{{product.description}}</p>
+    <p><app-starts [rating]="product.rating"></app-starts></p>
+  </nz-card>
+</section>

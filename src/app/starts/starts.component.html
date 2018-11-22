@@ -1,3 +1,7 @@
-<p>
-  starts works!
-</p>
+<section class="starts-container">
+  <span
+    *ngFor="let start of startList"
+  >
+    {{start ? '★' : '☆'}}
+  </span>
+</section>
