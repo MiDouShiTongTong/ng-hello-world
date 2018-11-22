@@ -1,0 +1,47 @@
+路由与导航
+    基本路由
+    子路由
+    辅助路由
+    路由守卫[canActivate, canDeactivate]
+    resolve 路由
+
+依赖注入
+    什么是依赖注入(侧重于手段)
+        类本身不创建对象, 由外部容器创建对象注入到本类中
+    什么是控制反转(侧重与描述)(与依赖注入是一个思想)
+        类本身不创建对象, 由外部容器创建对象注入到本类中
+        这样对象的控制权就转移到了外部
+    好处
+        松耦合, 提高重用性
+
+    Code
+        /*
+          两种写法功能是一样的
+          providers: [ProductService]
+          providers: [{provide: ProductService, useClass: AnotherProductService}]
+
+          constructor(private productService: ProductService) {}
+          // 1.从 providers 获取对应的 token (provide: ProductService)
+          // 2.实例化 对应的对象 (useClass: AnotherProductService)
+        */
+
+    注入器的层级关系
+        应用级注入器(模块中的 providers)
+        组件级注入器(组件中的 providers)
+        子组件级注入器
+
+    组件获取注入器的顺序
+        自身的 providers 中获取
+        父组件的 providers 中获取
+        应用级的 providers 中获取(Injectable 装饰器会存储到应用级的 providers 中)
+        上面三层都没有获取到抛异常
+
+绑定 响应式编程 管道
+
+组件之间通讯
+
+表单处理
+
+与服务端通讯
+
+构建与部署

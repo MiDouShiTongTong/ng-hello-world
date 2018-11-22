@@ -1,0 +1,25 @@
+.product-detail-container {
+  .product-info-container {
+    margin-bottom: 10px;
+    padding: 10px;
+    box-shadow: 0 0 5px #e1e1e1;
+    p {
+      display: flex;
+      margin-bottom: 10px;
+      img {
+        max-width: 100%;
+      }
+      span:first-child {
+        margin-right: 5px;
+      }
+    }
+  }
+  .product-comment-container {
+    padding: 10px;
+    box-shadow: 0 0 5px #e1e1e1;
+    .comment-title {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

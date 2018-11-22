@@ -4,7 +4,7 @@
            [routerLink]="['product', product.id]"
   >
     <ng-template #coverTemplate>
-      <img alt="product.name" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"/>
+      <img [alt]="product.name" [src]="product.imageUrl"/>
     </ng-template>
     <p class="product-title-container">
       <span>{{product.name}}</span>

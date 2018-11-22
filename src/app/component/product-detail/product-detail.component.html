@@ -1,0 +1,45 @@
+<section class="product-detail-container">
+  <section class="product-info-container">
+    <p class="title">商品信息</p>
+    <p><img [src]="product.imageUrl" [alt]="product.name"></p>
+    <p>
+      <span>商品名称: </span>
+      <span>{{product.name}}</span>
+    </p>
+    <p>
+      <span>商品价格: </span>
+      <span>{{product.price}}</span>
+    </p>
+    <p>
+      <span>商品描述: </span>
+      <span>{{product.description}}</span>
+    </p>
+    <p>
+      <span>商品评分: </span>
+      <span><app-starts [rating]="product.rating"></app-starts></span>
+    </p>
+  </section>
+  <section class="product-comment-container">
+    <p class="title">商品评论</p>
+    <nz-list [nzDataSource]="productCommentList" [nzRenderItem]="item" [nzItemLayout]="'horizontal'" [nzLoading]="loading">
+      <ng-template #item let-item>
+        <nz-list-item>
+          <nz-list-item-meta
+            [nzTitle]="nzTitle"
+            [nzDescription]="nzDescription">
+            <ng-template #nzTitle>
+              <p class="comment-title">
+                <span>{{item.username}}</span>
+                <span>{{item.created_at}}</span>
+              </p>
+            </ng-template>
+            <ng-template #nzDescription>
+              <p>{{item.content}}</p>
+              <app-starts [rating]="item.rating"></app-starts>
+            </ng-template>
+          </nz-list-item-meta>
+        </nz-list-item>
+      </ng-template>
+    </nz-list>
+  </section>
+</section>

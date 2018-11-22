@@ -12,7 +12,8 @@ import {
   NzSelectModule,
   NzButtonModule,
   NzCarouselModule,
-  NzCardModule
+  NzCardModule,
+  NzListModule
 } from 'ng-zorro-antd';
 
 /** 配置 angular i18n **/
@@ -20,14 +21,14 @@ import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { SearchComponent } from './search/search.component';
-import { CarouselComponent } from './carousel/carousel.component';
-import { ProductComponent } from './product/product.component';
-import { StartsComponent } from './starts/starts.component';
-import { ProductDetailComponent } from './product-detail/product-detail.component';
-import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './component/header/header.component';
+import { FooterComponent } from './component/footer/footer.component';
+import { SearchComponent } from './component/search/search.component';
+import { CarouselComponent } from './component/carousel/carousel.component';
+import { ProductComponent } from './component/product/product.component';
+import { StartsComponent } from './component/starts/starts.component';
+import { ProductDetailComponent } from './component/product-detail/product-detail.component';
+import { HomeComponent } from './component/home/home.component';
 
 registerLocaleData(zh);
 
@@ -59,7 +60,8 @@ registerLocaleData(zh);
     NzSelectModule,
     NzButtonModule,
     NzCarouselModule,
-    NzCardModule
+    NzCardModule,
+    NzListModule
   ],
   providers: [
     // 配置 ng-zorro-antd 国际化
