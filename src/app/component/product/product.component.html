@@ -1,16 +1,32 @@
 <section class="product-container">
-  <nz-card nzHoverable [nzCover]="coverTemplate"
-           *ngFor="let product of productList"
-           [routerLink]="['product', product.id]"
-  >
-    <ng-template #coverTemplate>
-      <img [alt]="product.name" [src]="product.imageUrl"/>
-    </ng-template>
-    <p class="product-title-container">
-      <span>{{product.name}}</span>
-      <span>¥{{product.price}}</span>
-    </p>
-    <p>{{product.description}}</p>
-    <p><app-starts [rating]="product.rating"></app-starts></p>
-  </nz-card>
+  <!-- 商品搜索 -->
+  <section class="product-search-container">
+    <nz-input-group nzSearch>
+      <input
+        type="text"
+        nz-input
+        placeholder="请输入商品名称"
+        [formControl]="searchNameFormControl">
+    </nz-input-group>
+  </section>
+  <!-- 商品列表 -->
+  <section class="product-list-container">
+    <nz-card
+      nzHoverable
+      [nzCover]="coverTemplate"
+      [routerLink]="['product', product.id]"
+      *ngFor="let product of productList | filter : 'name' : searchName">
+      <ng-template #coverTemplate>
+        <img [alt]="product.name" [src]="product.imageUrl"/>
+      </ng-template>
+      <p class="product-title-container">
+        <span>{{product.name}}</span>
+        <span>¥{{product.price}}</span>
+      </p>
+      <p>{{product.description}}</p>
+      <p>
+        <app-starts [rating]="product.rating"></app-starts>
+      </p>
+    </nz-card>
+  </section>
 </section>

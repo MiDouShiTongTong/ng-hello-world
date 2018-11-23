@@ -39,8 +39,45 @@
 
         上面三层都没有获取到抛异常
 
-绑定 响应式编程 管道
+数据绑定 响应式编程 管道
+  数据绑定
+    双大括号, 绑定元素的内容
+    方括号, 绑定元素的标签
+    小括号, 绑定元素的事件
+        <input (change)="methodName($event)">
+            change: 事件名称
+            methodName: 组件的方法名称
+        <button (click)="flag = false">
 
+    DOM 属性和 HTML 属性的区别, 数据绑定绑定的是 DOM 属性
+      DOM 属性, DOM 元素的属性
+      HTML 属性, DOM 元素的 HTML 标签属性
+
+  响应式编程
+    const subscription = of(1, 2, 3, 4, 5)
+      .pipe(
+        filter(n => n % 2 === 0),
+        map(n => n * n)
+      )
+      .subscribe({
+        next: x => console.log(x),
+        error: err => console.error(err),
+        complete: () => console.log('ok')
+      });
+
+    - 可观察对象, 表示一组值或者事件的集合
+      1, 2, 3, 4, 5
+    - 观察者, 一个回调函数的集合, 他知道怎么样去监听 Observable 发送的值
+      pipe
+    - 观察对象, 表示一个观察对象, 用于取消观察
+      subscription
+    - 操作符, 纯粹的函数, 可以用函数是编程来处理集合
+      filter
+      map
+
+  管道
+    用于过滤数据
+    
 组件之间通讯
 
 表单处理
