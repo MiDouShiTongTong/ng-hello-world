@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
-import { SearchOutline } from '@ant-design/icons-angular/icons';
+import { SearchOutline, StarFill, StarOutline } from '@ant-design/icons-angular/icons';
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
 import {
@@ -35,7 +35,7 @@ import { IconDefinition } from '@ant-design/icons-angular';
 import { FilterPipe } from './pipe/filter/filter.pipe';
 
 registerLocaleData(zh);
-const icons: IconDefinition[] = [ SearchOutline ];
+const icons: IconDefinition[] = [ SearchOutline, StarFill, StarOutline ];
 
 @NgModule({
   // 只能声明组件, 指令

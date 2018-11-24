@@ -16,12 +16,38 @@
     </p>
     <p>
       <span>商品评分: </span>
-      <span><app-starts [rating]="product.rating"></app-starts></span>
+      <span>
+        <app-starts [rating]="product.rating"></app-starts>
+        <span class="product-rating">{{product.rating}}</span>
+      </span>
     </p>
   </section>
   <section class="product-comment-container">
     <p class="title">商品评论</p>
-    <nz-list [nzDataSource]="productCommentList" [nzRenderItem]="item" [nzItemLayout]="'horizontal'" [nzLoading]="loading">
+    <button
+      nz-button
+      nzType="primary"
+      (click)="isHiddenPostProductCommentContainer = !isHiddenPostProductCommentContainer"
+    >发表评论</button>
+    <section class="post-product-comment-container"
+             [hidden]="isHiddenPostProductCommentContainer">
+      <textarea  placeholder="请输入评论内容"
+                 nz-input
+                 [nzAutosize]="{ minRows: 2, maxRows: 6 }"
+                 [(ngModel)]="postProductCommentContent"></textarea>
+      <app-starts
+        [readOnly]="false"
+        [rating]="postProductCommentRating"
+        (changeLatestRatingValue)="postProductCommentRating = $event"></app-starts>
+      <button nz-button
+              nzType="primary"
+              (click)="postProductComment()">提交</button>
+    </section>
+    <nz-list
+      [nzDataSource]="productCommentList"
+      [nzRenderItem]="item"
+      [nzItemLayout]="'horizontal'"
+      [nzLoading]="loading">
       <ng-template #item let-item>
         <nz-list-item>
           <nz-list-item-meta

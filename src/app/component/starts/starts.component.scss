@@ -1,4 +1,8 @@
 .starts-container {
   display: flex;
   font-family: cursive;
+  .un-ready-only:hover {
+    cursor: pointer;
+    opacity: .9;
+  }
 }

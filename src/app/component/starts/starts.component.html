@@ -1,7 +1,12 @@
 <section class="starts-container">
-  <span
-    *ngFor="let start of startList"
+  <div
+    *ngFor="let start of startList; let i = index;"
+    [class]="!readOnly ? 'un-ready-only' : ''"
   >
-    {{start ? '★' : '☆'}}
-  </span>
+    <i nz-icon
+       type="star"
+       [theme]="start ? 'fill' : 'outline'"
+       (click)="handlerClick(i + 1)"
+    ></i>
+  </div>
 </section>

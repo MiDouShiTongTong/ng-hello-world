@@ -1,4 +1,7 @@
 .product-detail-container {
+  .title {
+    margin-bottom: 10px;
+  }
   .product-info-container {
     margin-bottom: 10px;
     padding: 10px;
@@ -12,11 +15,31 @@
       span:first-child {
         margin-right: 5px;
       }
+      span:last-child {
+        display: flex;
+        .product-rating {
+          margin-left: 10px;
+        }
+      }
     }
   }
   .product-comment-container {
     padding: 10px;
     box-shadow: 0 0 5px #e1e1e1;
+    .post-product-comment-container {
+      margin-top: 10px;
+      padding: 10px;
+      box-shadow: 0 0 5px #e1e1e1;
+      textarea {
+        margin-bottom: 10px;
+      }
+      button {
+        margin-top: 10px;
+      }
+    }
+    .ant-list-item-meta-description {
+      word-break: break-all;
+    }
     .comment-title {
       display: flex;
       justify-content: space-between;
