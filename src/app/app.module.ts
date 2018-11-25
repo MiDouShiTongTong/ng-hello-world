@@ -9,16 +9,16 @@ import zh from '@angular/common/locales/zh';
 import {
   NZ_I18N,
   zh_CN,
-  NzGridModule,
-  NzMenuModule,
-  NzFormModule,
-  NzInputModule,
-  NzSelectModule,
-  NzButtonModule,
-  NzCarouselModule,
-  NzCardModule,
-  NzListModule,
-  NzIconModule,
+  NgZorroAntdModule,
+  // NzMenuModule,
+  // NzFormModule,
+  // NzInputModule,
+  // NzSelectModule,
+  // NzButtonModule,
+  // NzCarouselModule,
+  // NzCardModule,
+  // NzListModule,
+  // NzIconModule,
   NZ_ICONS
 } from 'ng-zorro-antd';
 
@@ -63,16 +63,17 @@ const icons: IconDefinition[] = [ SearchOutline, StarFill, StarOutline ];
     // 响应式模块
     ReactiveFormsModule,
     // ng-zorro-antd 模块
-    NzGridModule,
-    NzMenuModule,
-    NzFormModule,
-    NzInputModule,
-    NzSelectModule,
-    NzButtonModule,
-    NzCarouselModule,
-    NzCardModule,
-    NzListModule,
-    NzIconModule
+    NgZorroAntdModule
+    // NzGridModule,
+    // NzMenuModule,
+    // NzFormModule,
+    // NzInputModule,
+    // NzSelectModule,
+    // NzButtonModule,
+    // NzCarouselModule,
+    // NzCardModule,
+    // NzListModule,
+    // NzIconModule
   ],
   providers: [
     // 配置 ng-zorro-antd 国际化

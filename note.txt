@@ -131,7 +131,55 @@
       投影 Vue 中的 slot, React 中的 this.props.children
 
 表单处理
+  模版表单和响应式表单都依赖于 FormsModel, ReactiveFormsModel
+
+  模版表单, 指令以 ng 起点, 只能在模版中操作表单, 不能在代码中
+    ngForm 会实例 FormGroup
+      <form #myForm="ngForm"></form>
+
+    ngModel 会实例 FormControl
+      <input name="username" ngModel>
+
+    ngModelGroup 会实例 FormGroup
+      <div ngModelGroup="userInfo">
+        <input name="username" ngModel>
+        <input name="password" ngModel>
+      </div>
+
+  响应式表单, 指令以 form 起点, 只能在代码中操作表单, 不能在模版中
+    FormControl 对象, 创建一个响应式的表单
+    FormGroup 对象多个 FormControl 的集合
+    FormArray 对象可变长度的 FormGroup
+
+    指令
+      formGroup - 绑定属性
+      formGroupName - 普通字符串
+      formControlName - 普通字符串
+      formArrayName - 普通字符串
+
+  表单的验证
+    Angular 校验器
+      Validators
+
+    响应式表单校验
+      通过fb.group 的 参数传入
+        ['', [Validators.required, Validators.minLength(5)]]
+
+    状态的字段
+      touched, 已获取过焦点为 true
+      untouched, 未获取过焦点为 true
+      pristine, 值没有被给修改过
+      dirty, 值已经被修改过
+      pending, 异步
+
+    指令
+      生成一个指令 ng g directive qqqDirective
 
 与服务端通讯
+  创建 Web 服务器
+
+  Http 通讯
+
+  WebSocket 通讯
 
 构建与部署

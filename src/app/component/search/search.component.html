@@ -1,28 +1,39 @@
 <section class="search-container">
-  <form nz-form [nzLayout]="'vertical'">
+  <form
+    nz-form
+    [nzLayout]="'vertical'"
+    [formGroup]="searchForm"
+    (ngSubmit)="submitSearchForm()">
     <nz-form-item>
       <nz-form-label nzFor="productName">商品名称</nz-form-label>
       <nz-form-control>
-        <input nz-input id="productName">
+        <input id="productName" nz-input formControlName="productName">
+        <nz-form-explain *ngIf="searchForm.get('productName').dirty && searchForm.get('productName').errors">
+          商品名称由1~20个字符组成
+        </nz-form-explain>
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
       <nz-form-label nzFor="productPrice">商品价格</nz-form-label>
       <nz-form-control>
-        <input nz-input id="productPrice">
+        <input id="productPrice" nz-input formControlName="productPrice">
+        <nz-form-explain *ngIf="searchForm.get('productPrice').dirty && searchForm.get('productPrice').errors">
+          商品价格必须为正数
+        </nz-form-explain>
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
-      <nz-form-label nzFor="productName">商品分类</nz-form-label>
+      <nz-form-label nzFor="productCategory">商品分类</nz-form-label>
       <nz-form-control>
-        <nz-select nzPlaceHolder="Choose">
-          <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+        <nz-select id="productCategory" nzPlaceHolder="Choose" formControlName="productCategory">
+          <nz-option [nzValue]="0" nzLabel="全部分类"></nz-option>
+          <nz-option *ngFor="let productCategory of productCategoryList" [nzValue]="productCategory" [nzLabel]="productCategory"></nz-option>
         </nz-select>
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
       <nz-form-control>
-        <button nz-button class="do-search-product" [nzType]="'primary'" type="button">搜索</button>
+        <button class="do-search-product" nz-button [nzType]="'primary'" type="submit">搜索</button>
       </nz-form-control>
     </nz-form-item>
   </form>

@@ -10,6 +10,7 @@ import { Product } from 'src/app/model/Product';
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit {
+  // FormControl 需要引入 ReactiveFormsModule 模块
   searchNameFormControl: FormControl = new FormControl();
   searchName: string;
   productList: Product[];
