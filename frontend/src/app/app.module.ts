@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { SearchOutline, StarFill, StarOutline } from '@ant-design/icons-angular/icons';
@@ -25,7 +26,7 @@ import {
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './component/header/header.component';
 import { FooterComponent } from './component/footer/footer.component';
-import { SearchComponent } from './component/search/search.component';
+import { ProductSearchComponent } from './component/product-search/product-search.component';
 import { CarouselComponent } from './component/carousel/carousel.component';
 import { ProductComponent } from './component/product/product.component';
 import { StartsComponent } from './component/starts/starts.component';
@@ -44,7 +45,7 @@ const icons: IconDefinition[] = [ SearchOutline, StarFill, StarOutline ];
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    SearchComponent,
+    ProductSearchComponent,
     CarouselComponent,
     ProductComponent,
     StartsComponent,
@@ -62,6 +63,8 @@ const icons: IconDefinition[] = [ SearchOutline, StarFill, StarOutline ];
     FormsModule,
     // 响应式模块
     ReactiveFormsModule,
+    // http 模块
+    HttpClientModule,
     // ng-zorro-antd 模块
     NgZorroAntdModule
     // NzGridModule,

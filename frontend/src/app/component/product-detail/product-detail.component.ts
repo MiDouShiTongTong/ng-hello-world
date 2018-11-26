@@ -24,12 +24,18 @@ export class ProductDetailComponent implements OnInit {
   ) {
     this.postProductCommentRating = 5; // 默认五星, 通过子组件改变
     this.isHiddenPostProductCommentContainer = true; // 默认隐藏评论容器
+    this.productCommentList = [];
   }
 
   ngOnInit() {
+    const productId = this.route.snapshot.params.id * 1;
     // 初始化商品, 商品评论
-    this.product = this.productService.getProductById(this.route.snapshot.params.id * 1);
-    this.productCommentList = this.productService.getCommentListByProductId(this.product.id);
+    this.productService.asyncGetProductById(productId).subscribe(
+      result => this.product = result['data']
+    );
+    this.productService.asyncGetCommentListByProductId(productId).subscribe(
+      result => this.productCommentList = result['data']
+    );
   }
 
   /**

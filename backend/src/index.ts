@@ -1,15 +1,15 @@
 import * as Koa from 'koa';
-import * as Router from 'koa-router';
+// 跨域
+import * as cors from 'koa2-cors';
+// 路由
+import productRouter from './controller/product';
 
+// koa 实例
 const app = new Koa();
-const router = new Router();
-
-router.get('/*', async (ctx) => {
-    ctx.body = 'Hello world';
-});
-
-app.use(router.routes());
-
-app.listen(3000);
-
-console.log('Server running on port 3000');
+// 设置跨域
+app.use(cors());
+// 注册路由
+app.use(productRouter);
+// 启动服务器
+app.listen(8003);
+console.log('Server running on port 8003');

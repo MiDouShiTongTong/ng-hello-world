@@ -1,21 +1,11 @@
 <section class="product-container">
-  <!-- 商品搜索 -->
-  <section class="product-search-container">
-    <nz-input-group nzSearch>
-      <input
-        type="text"
-        nz-input
-        placeholder="请输入商品名称"
-        [formControl]="searchNameFormControl">
-    </nz-input-group>
-  </section>
   <!-- 商品列表 -->
   <section class="product-list-container">
     <nz-card
       nzHoverable
       [nzCover]="coverTemplate"
       [routerLink]="['product', product.id]"
-      *ngFor="let product of productList | filter : 'name' : searchName">
+      *ngFor="let product of productList">
       <ng-template #coverTemplate>
         <img [alt]="product.name" [src]="product.imageUrl"/>
       </ng-template>

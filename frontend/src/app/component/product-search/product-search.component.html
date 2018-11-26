@@ -1,14 +1,14 @@
-<section class="search-container">
+<section class="product-search-container">
   <form
     nz-form
     [nzLayout]="'vertical'"
-    [formGroup]="searchForm"
+    [formGroup]="productSearchForm"
     (ngSubmit)="submitSearchForm()">
     <nz-form-item>
       <nz-form-label nzFor="productName">商品名称</nz-form-label>
       <nz-form-control>
         <input id="productName" nz-input formControlName="productName">
-        <nz-form-explain *ngIf="searchForm.get('productName').dirty && searchForm.get('productName').errors">
+        <nz-form-explain *ngIf="productSearchForm.get('productName').dirty && productSearchForm.get('productName').errors">
           商品名称由1~20个字符组成
         </nz-form-explain>
       </nz-form-control>
@@ -17,7 +17,7 @@
       <nz-form-label nzFor="productPrice">商品价格</nz-form-label>
       <nz-form-control>
         <input id="productPrice" nz-input formControlName="productPrice">
-        <nz-form-explain *ngIf="searchForm.get('productPrice').dirty && searchForm.get('productPrice').errors">
+        <nz-form-explain *ngIf="productSearchForm.get('productPrice').dirty && productSearchForm.get('productPrice').errors">
           商品价格必须为正数
         </nz-form-explain>
       </nz-form-control>

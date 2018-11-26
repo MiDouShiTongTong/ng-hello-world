@@ -1,5 +1,5 @@
 <section class="product-detail-container">
-  <section class="product-info-container">
+  <section class="product-info-container" *ngIf="product">
     <p class="title">商品信息</p>
     <p><img [src]="product.imageUrl" [alt]="product.name"></p>
     <p>
