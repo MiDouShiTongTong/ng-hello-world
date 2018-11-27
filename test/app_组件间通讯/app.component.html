@@ -1,0 +1,17 @@
+<section class="app-container">
+  <!--<input type="text" [(ngModel)]="orderNum">-->
+  <!--<input type="text" [(ngModel)]="orderName">-->
+  <!--<app-order-->
+    <!--[orderNum]="orderNum"-->
+    <!--[orderName]="orderName"-->
+  <!--&gt;</app-order>-->
+
+  <p>股票名称: {{stock.stockName}}</p>
+  <p>股票价格: {{stock.stockPrice | number : '2.2-2'}}</p>
+  <app-stock
+    (buyStock)="handlerBuyStock($event)"
+  ></app-stock>
+  <app-stock-order
+    [stock]="stock"
+  ></app-stock-order>
+</section>

@@ -1,0 +1,13 @@
+<section class="app-container">
+  <section>
+    <button [routerLink]="['home']">主页</button>
+    <button [routerLink]="['product', 1]" [queryParams]="{id: 2}">商品1</button>
+    <button type="button" (click)="toProduct()">商品2(编程式导航)</button>
+    <button [routerLink]="[{outlets: {auxiliary: 'chat'}}]">开始聊天</button>
+    <button [routerLink]="[{outlets: {auxiliary: null}}]">结束聊天</button>
+    <router-outlet></router-outlet>
+  </section>
+  <section>
+    <router-outlet name="auxiliary"></router-outlet>
+  </section>
+</section>

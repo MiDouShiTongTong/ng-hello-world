@@ -1,0 +1,9 @@
+.app-container {
+  display: flex;
+  & > section:first-child {
+    width: 70%;
+  }
+  & > section:last-child {
+    width: 30%;
+  }
+}

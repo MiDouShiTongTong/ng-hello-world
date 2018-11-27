@@ -1,0 +1,27 @@
+<section class="app-container">
+  <!--<app-life name="hello"></app-life>-->
+  <!--<h2>app component</h2>-->
+  <!--<div>问候语: <input type="text" [(ngModel)]="greeting"></div>-->
+  <!--<div>性名: <input type="text" [(ngModel)]="user.name"></div>-->
+  <!--<app-child-->
+       <!--[greeting]="greeting"-->
+       <!--[user]="user"-->
+  <!--&gt;</app-child>-->
+
+  <!--<app-child2 #child1></app-child2>-->
+  <!--<app-child2 #child2></app-child2>-->
+  <!--<button (click)="child2.sayGreeting('hello2')">调用子组件的方法</button>-->
+  <!--<div>{{message}}</div>-->
+
+
+  <app-child3>
+    <div class="header">父组件投影1 {{message}}</div>
+    <div class="footer">父组件投影2 {{message}}</div>
+  </app-child3>
+
+  <div [innerHTML]="innerHTML"></div>
+
+  <a [routerLink]="['child2']">c2</a>
+  <a [routerLink]="['child3']">c3</a>
+  <router-outlet></router-outlet>
+</section>

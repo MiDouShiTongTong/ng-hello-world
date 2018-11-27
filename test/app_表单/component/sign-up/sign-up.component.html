@@ -1,0 +1,60 @@
+<section class="template-form-container">
+  <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+    <section>
+
+      <div *ngIf="signUpForm.get('username').touched">
+        以获取过焦点
+      </div>
+      <div>
+        <label>用户名</label>
+        <input type="text" formControlName="username">
+      </div>
+      <div *ngIf="signUpForm.get('username').dirty && signUpForm.get('username').errors" class="error">
+        用户名至少5位
+      </div>
+
+      <div *ngIf="signUpForm.get('phone').dirty">
+        已修改过字段
+      </div>
+      <div *ngIf="signUpForm.get('phone').pending">
+        正在异步校验
+      </div>
+      <div>
+        <label>手机号</label>
+        <input type="text" formControlName="phone">
+      </div>
+      <div *ngIf="signUpForm.get('phone').dirty && signUpForm.get('phone').errors" class="error">
+        手机号格式不正确
+      </div>
+
+    </section>
+    <section formGroupName="passwordForm">
+
+      <div>
+        <label>密码</label>
+        <input type="text" formControlName="password">
+      </div>
+      <div *ngIf="signUpForm.get('passwordForm').dirty && signUpForm.get('passwordForm').errors" class="error">
+        <div *ngIf="signUpForm.get('passwordForm').hasError('required')">
+          请输入密码
+        </div>
+      </div>
+
+      <div>
+        <label>确认密码</label>
+        <input type="text" formControlName="confirmPassword">
+      </div>
+      <div *ngIf="signUpForm.get('passwordForm').dirty && signUpForm.get('passwordForm').errors" class="error">
+        <div *ngIf="signUpForm.get('passwordForm').hasError('passwordEqual')">
+          两次密码不一致
+        </div>
+      </div>
+
+    </section>
+    <div>
+      <button type="submit">提交</button>
+    </div>
+  </form>
+  <div>{{signUpForm.value | json}}</div>
+  <div>{{signUpForm.status}}</div>
+</section>

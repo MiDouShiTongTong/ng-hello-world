@@ -1,0 +1,35 @@
+<section class="reactive-form-container">
+  <style>
+    input {
+      margin-left: 20px;
+    }
+  </style>
+  <!-- formGroup 为属性绑定 -->
+  <!-- formGroupName, formControlName 为普通字符串 -->
+
+  <form action="" [formGroup]="myForm" (submit)="onSubmit()">
+    <input type="text" formControlName="username">
+
+    <div formGroupName="dateRange">
+      <div>起始日期<input type="date" formControlName="from"></div>
+      <div>截止日期<input type="date" formControlName="to"></div>
+    </div>
+
+    <div style="display: flex;">
+      邮箱地址
+      <div formArrayName="emails">
+        <div *ngFor="let e of this.myForm.value.emails; let i = index;">
+          <input type="text" [formControlName]="i">
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <button type="button" (click)="addEmail()">添加邮箱地址</button>
+    </div>
+
+    <div>
+      <button type="submit">保存</button>
+    </div>
+  </form>
+</section>

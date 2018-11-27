@@ -1,0 +1,44 @@
+<!--<p>-->
+  <!--<button (click)="handlerClick($event)">button1</button>-->
+<!--</p>-->
+<!--<p>-->
+  <!--<img [src]="imgUrl" style="max-width: 20vw;">-->
+<!--</p>-->
+<!--<p>-->
+  <!--<input type="text" (input)="handlerChange($event)" value="qqq">-->
+<!--</p>-->
+<!--<p>-->
+  <!--<button disabled>button2</button>-->
+<!--</p>-->
+
+<!--<p>-->
+  <!--<img [src]="imgUrl" alt="" style="max-width: 20vw;">-->
+  <!--<img src="{{imgUrl}}" alt="" style="max-width: 20vw;">-->
+<!--</p>-->
+
+<table>
+  <tr>
+    <!-- HTML 属性的绑定 -->
+    <td [attr.colspan]="collapseSize">test</td>
+  </tr>
+  <tr>
+    <!-- HTML 属性的绑定 -->
+    <td>test</td>
+    <td>test</td>
+    <td>test</td>
+  </tr>
+</table>
+<!-- HTML 属性的绑定 -->
+<input type="text" [attr.value]="inputValue">
+
+<!-- HTML 属性的绑定 class 属性的绑定 -->
+<p class="a b" [class.c]="isC">test</p>
+
+<!-- HTML 属性的绑定 ngClass 同时操作多个 class -->
+<p [ngClass]="currentClass">test2</p>
+
+<!-- HTML 属性的绑定 style 属性的绑定 -->
+<p [style.color]="isF ? '#06f' : '#f60'">test3</p>
+
+<!-- HTML 属性的绑定 ngStyle 同时绑定多个 style -->
+<p [ngStyle]="currentStyle">test5</p>

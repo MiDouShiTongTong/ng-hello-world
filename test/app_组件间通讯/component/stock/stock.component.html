@@ -1,0 +1,8 @@
+<section class="price-quote-container">
+  <h3>股票状况组件</h3>
+  <p>股票名称: {{stock.stockName}}</p>
+  <p>股票价格: {{stock.stockPrice | number : '2.2-2'}}</p>
+  <p>
+    <button type="button" (click)="handlerBuyStock()">购买</button>
+  </p>
+</section>

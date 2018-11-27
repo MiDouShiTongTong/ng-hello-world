@@ -1,0 +1,10 @@
+<p>
+  <!-- 单向数据绑定 -->
+  <input type="text" value="{{name}}" (input)="handlerInput($event)">
+  <!-- 双向数据绑定(需要导入 FormsModule 模块) -->
+  <!-- ngModel 只能用于 表单的标签 -->
+  <input type="text" [(ngModel)]="name">
+</p>
+<p>
+  {{name}}
+</p>

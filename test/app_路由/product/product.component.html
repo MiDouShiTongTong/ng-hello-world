@@ -1,0 +1,8 @@
+<p>商品id: {{product.id}}</p>
+<p>商品名称: {{product.name}}</p>
+<p>
+  <a [routerLink]="['./']">商品详情</a>
+  <a [routerLink]="['comment', 1]">商品评论</a>
+</p>
+<router-outlet></router-outlet>
+<router-outlet name="aux"></router-outlet>
