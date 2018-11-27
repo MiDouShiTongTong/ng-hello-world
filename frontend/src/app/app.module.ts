@@ -5,35 +5,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { SearchOutline, StarFill, StarOutline } from '@ant-design/icons-angular/icons';
-import { registerLocaleData } from '@angular/common';
+import { registerLocaleData, LocationStrategy, HashLocationStrategy } from '@angular/common';
 import zh from '@angular/common/locales/zh';
 import {
   NZ_I18N,
   zh_CN,
-  NgZorroAntdModule,
-  // NzMenuModule,
-  // NzFormModule,
-  // NzInputModule,
-  // NzSelectModule,
-  // NzButtonModule,
-  // NzCarouselModule,
-  // NzCardModule,
-  // NzListModule,
-  // NzIconModule,
   NZ_ICONS
 } from 'ng-zorro-antd';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './component/header/header.component';
-import { FooterComponent } from './component/footer/footer.component';
-import { ProductSearchComponent } from './component/product-search/product-search.component';
-import { CarouselComponent } from './component/carousel/carousel.component';
-import { ProductComponent } from './component/product/product.component';
-import { StartsComponent } from './component/starts/starts.component';
-import { ProductDetailComponent } from './component/product-detail/product-detail.component';
-import { HomeComponent } from './component/home/home.component';
 import { IconDefinition } from '@ant-design/icons-angular';
-import { FilterPipe } from './pipe/filter/filter.pipe';
 
 registerLocaleData(zh);
 const icons: IconDefinition[] = [ SearchOutline, StarFill, StarOutline ];
@@ -41,16 +22,7 @@ const icons: IconDefinition[] = [ SearchOutline, StarFill, StarOutline ];
 @NgModule({
   // 只能声明组件, 指令
   declarations: [
-    FilterPipe,
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    ProductSearchComponent,
-    CarouselComponent,
-    ProductComponent,
-    StartsComponent,
-    ProductDetailComponent,
-    HomeComponent
+    AppComponent
   ],
   imports: [
     // 浏览器模块
@@ -59,29 +31,15 @@ const icons: IconDefinition[] = [ SearchOutline, StarFill, StarOutline ];
     AppRoutingModule,
     // 动画模块,
     BrowserAnimationsModule,
-    // 表单模块
-    FormsModule,
-    // 响应式模块
-    ReactiveFormsModule,
     // http 模块
-    HttpClientModule,
-    // ng-zorro-antd 模块
-    NgZorroAntdModule
-    // NzGridModule,
-    // NzMenuModule,
-    // NzFormModule,
-    // NzInputModule,
-    // NzSelectModule,
-    // NzButtonModule,
-    // NzCarouselModule,
-    // NzCardModule,
-    // NzListModule,
-    // NzIconModule
+    HttpClientModule
   ],
   providers: [
     // 配置 ng-zorro-antd 国际化
     {provide: NZ_I18N, useValue: zh_CN },
-    { provide: NZ_ICONS, useValue: icons }
+    { provide: NZ_ICONS, useValue: icons },
+    // hash 路由
+    // {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [
     AppComponent

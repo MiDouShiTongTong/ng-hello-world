@@ -13,7 +13,7 @@ export class StartsComponent implements OnInit, OnChanges {
   readOnly: boolean;
 
   @Output()
-  changeLatestRatingValue: EventEmitter<number> = new EventEmitter<number>();
+  changeRatingValue: EventEmitter<number> = new EventEmitter<number>();
 
   startList: boolean[];
 
@@ -39,7 +39,7 @@ export class StartsComponent implements OnInit, OnChanges {
     if (!this.readOnly) {
       this.rating = rating;
       this.ngOnInit();
-      this.changeLatestRatingValue.emit(rating);
+      this.changeRatingValue.emit(rating);
     }
   }
 }

@@ -3,8 +3,7 @@ import { ProductService } from '../../service/product/product.service';
 import { FormControl } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
 import { Observable, Subscription } from 'rxjs';
-import { Product } from 'src/app/model/Product';
-import { ProductSearchParams } from '../../model/product-search-params';
+import { Product } from 'src/app/model/product';
 
 @Component({
   selector: 'app-product',
@@ -13,7 +12,7 @@ import { ProductSearchParams } from '../../model/product-search-params';
 })
 export class ProductComponent implements OnInit, OnDestroy {
   productList: Product[];
-  productServiceSubscribe: Subscription;
+  productSearchEventEmitterSubscribe: Subscription;
 
   constructor(
     public productService: ProductService
@@ -27,18 +26,19 @@ export class ProductComponent implements OnInit, OnDestroy {
     );
     // 订阅商品搜索流
     // this.productService.productSearchEventEmitter.unsubscribe();
-    this.productServiceSubscribe = this.productService.productSearchEventEmitter.subscribe(
-      params => {
-        // 重新异步加载商品信息
-        this.productService.asyncGetProductList(params).subscribe(
-          result => this.productList = result['data']
-        );
-      }
-    );
+    this.productSearchEventEmitterSubscribe = this.productService.productSearchEventEmitter
+      .subscribe(
+        params => {
+          // 重新异步加载商品信息
+          this.productService.asyncGetProductList(params).subscribe(
+            result => this.productList = result['data']
+          );
+        }
+      );
   }
 
   ngOnDestroy() {
     // 组件销毁取消订阅
-    this.productServiceSubscribe.unsubscribe();
+    this.productSearchEventEmitterSubscribe.unsubscribe();
   }
 }

@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './component/home/home.component';
-import { ProductDetailComponent } from './component/product-detail/product-detail.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    redirectTo: 'home/product',
+    pathMatch: 'full'
   },
   {
-    path: 'product/:id',
-    component: ProductDetailComponent
+    path: 'home',
+    loadChildren: './home/home.module#HomeModule'
   }
 ];
 
@@ -22,4 +21,5 @@ const routes: Routes = [
     RouterModule
   ]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

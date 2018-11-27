@@ -4,7 +4,7 @@
     <nz-card
       nzHoverable
       [nzCover]="coverTemplate"
-      [routerLink]="['product', product.id]"
+      [routerLink]="['/home/product', product.id]"
       *ngFor="let product of productList">
       <ng-template #coverTemplate>
         <img [alt]="product.name" [src]="product.imageUrl"/>

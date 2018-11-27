@@ -4,8 +4,10 @@
 
 export const environment = {
   production: false,
-  API_ROOT: 'http://127.0.0.1:8003'
+  API_ROOT: 'http://127.0.0.1:3002',
+  PRODUCT_BID_WEB_SOCKET_API_ROOT: 'ws://127.0.0.1:3003'
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file

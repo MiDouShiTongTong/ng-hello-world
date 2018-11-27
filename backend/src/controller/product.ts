@@ -1,26 +1,8 @@
 import * as Router from 'koa-router';
-import * as WebSocket from 'ws';
 import { Product } from '../model/product';
 import { Comment } from '../model/comment';
 
 const router: Router = new Router();
-
-const wss = new WebSocket.Server({
-  port: 8005
-});
-
-const webSocketServer = wss.on('connection', ws => {
-  console.log('新的客户端连接');
-  ws.on('message', function incoming(message) {
-    console.log('收到新的消息 %s', message);
-  });
-});
-
-setInterval(() => {
-  if (webSocketServer.clients) {
-    webSocketServer.clients.forEach(client => client.send('hello client'));
-  }
-}, 2000);
 
 const productList: Product[] = [
   new Product(1, '第1个商品', 1.99, 3.5, '商品1描述', 'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png', ['食品', '养生']),
@@ -48,8 +30,10 @@ router.get('/product', async (ctx) => {
         productListTemp = productListTemp.filter(product => product.name.indexOf(productSearchParams[key]) > -1);
         break;
       case 'productPrice':
-        productListTemp = productListTemp.filter(product => product.price <= productSearchParams[key]);
-        break;
+        if (productSearchParams[key]) {
+          productListTemp = productListTemp.filter(product => product.price <= productSearchParams[key]);
+        }
+       break;
       case 'productCategory':
         if (parseInt(productSearchParams[key], 10) !== 0) {
           productListTemp = productListTemp.filter(product => product.categoryList.indexOf(productSearchParams[key]) > -1);

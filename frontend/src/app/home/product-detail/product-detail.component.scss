@@ -22,6 +22,13 @@
         }
       }
     }
+    .watch-product-container {
+      display: flex;
+      align-items: center;
+      button {
+        margin-right: 10px;
+      }
+    }
   }
   .product-comment-container {
     padding: 10px;

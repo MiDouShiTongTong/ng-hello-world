@@ -1,10 +1,10 @@
 {
-  "name": "shop",
+  "name": "auction",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "ng serve --aot",
+    "build": "ng build --aot --prod=true --optimization=true --deployUrl=/auction/ --baseHref=/auction/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
